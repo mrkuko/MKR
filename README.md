@@ -30,6 +30,7 @@ Route_x = {
 		Size  = {x = 2.0, y = 2.0, z = 2.0},--size of marker
         	Marker = 5,--type of entrance marker, https://docs.fivem.net/docs/game-references/markers/
 		Car = 'freecrawler',--car model for race, https://gta.fandom.com/wiki/Vehicles_in_GTA_V
+		Entry = 1200,--price to enter the race
 		Reward = 30000, --$ ,rewarded when finished sooner than ttf will runned away
 		ttf = 480000,--time to fail, in miliseconds
 		Points = {{x = float, y = float, z = float},{x = float, y = float, z = float}, --coords of checkpoints
