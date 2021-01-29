@@ -6,10 +6,10 @@
 - Download https://github.com/
 - extract to your directory and in type **start MKR** in your server.cfg
 
-####Discription:
+###Discription:
 - Custom race events
 
-####Adding new route for race example pattern:
+###Adding new route for race example pattern:
 
 ```lua
 Route_x = {	
