@@ -55,7 +55,7 @@ function reloadB()
     local blipInfo = {}
     for zoneKey, zoneValues in pairs(Config.Checkpoints) do
         local blip = AddBlipForCoord(zoneValues.Pos.x, zoneValues.Pos.y, zoneValues.Pos.z)
-        SetBlipSprite(blip, 430--[[*]])
+        SetBlipSprite(blip, zoneValues.Btype)
         SetBlipDisplay(blip, 6)
         SetBlipScale(blip, 1.2)
         SetBlipColour(blip, zoneValues.BColor)
