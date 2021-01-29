@@ -11,8 +11,9 @@ Config.Checkpoints = {
 		Color = {r = 97, g = 6, b = 109},--color of markers, gps route
 		BColor = 58,--blipcolor
 		Size  = {x = 2.0, y = 2.0, z = 2.0},--size of marker
-        Marker = 5,--type of entrance marker
+        	Marker = 5,--type of entrance marker
 		Car = 'freecrawler',--car model for race
+		Entry = 1200,
 		Reward = 30000, --$
 		ttf = 480000,--time to fail, in miliseconds
 		Points = {{x = -478.332, y = 1703.859, z = 318.916},{x = -517.429, y = 2008.133, z = 203.933}, --coords of checkpoints
@@ -37,8 +38,9 @@ Config.Checkpoints = {
 		Color = {r = 255, g = 153, b = 51},--color of markers, gps route
 		BColor = 47,--blipcolor https://docs.fivem.net/docs/game-references/blips/
 		Size  = {x = 2.0, y = 2.0, z = 2.0},--size of marker
-        Marker = 5,--type of entrance marker
+        	Marker = 5,--type of entrance marker
 		Car = 'comet2',--car model for race
+		Entry = 800,
 		Reward = 30000, --$
 		ttf = 180000,--time to fail, in miliseconds
 		Points = {{x = -250.2492, y = 605.4804, z = 184.877},{x = -369.2902, y = 670.2508, z = 166.2205}, --coords of checkpoints
