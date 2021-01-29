@@ -6,10 +6,19 @@
 - Download https://github.com/
 - extract to your directory and in type **start MKR** in your server.cfg
 
-###Discription:
+### Discription:
 - Custom race events
+- Config options:
+  - Enable/Disable chat announcements
+  - Name, position & color
+  - Size & type of marker
+  - Car model for race
+  - Reward
+  - Time to finish
+  - Checkpoints
 
-###Adding new route for race example pattern:
+### Adding new route for race example pattern:
+- paste this code under last route in your **config.lua** file
 
 ```lua
 Route_x = {	
