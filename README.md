@@ -7,7 +7,7 @@
 - extract to your directory and in type **start MKR** in your server.cfg
 
 ####Discription:
-- Custom race events, 
+- Custom race events
 ####Adding new route for race example pattern:
 
 ```lua
