@@ -4,7 +4,7 @@
 
 ## How to install:
 - Download https://github.com/mrkuko/MKR/releases
-- extract to your directory and in type **start MKR** in your server.cfg
+- extract to your directory and type **start MKR** in your server.cfg
 
 ### Discription:
 - Custom race events
