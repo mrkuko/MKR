@@ -102,15 +102,13 @@ Citizen.CreateThread(function()
         if IsControlPressed(0,38) and (isInMarker==true) and ((GetGameTimer() - GUI.Time) > 150) then
             GUI.Time = GetGameTimer()
             print("DEBUG: StartRace()")
-            StartRace()
+            TriggerServerEvent('MKR:registry', currentrace.Entry)
         end
     end
 end)
 
-
-
-
-
+RegisterNetEvent('MKR:enterrace')
+AddEventHandler('MKR:enterrace', function() StartRace()end)
 
 --Samotny raceevent
     --currentrace=Route_1
