@@ -1,4 +1,4 @@
-# MKR - mr__Kuko's race events
+# MKR - mr__Kuko's Racing
 ## Requirements
 * [es_extended](https://github.com/esx-framework/es_extended/tree/v1-final)
 
