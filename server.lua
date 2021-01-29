@@ -2,6 +2,28 @@ ESX = nil
 
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
+RegisterNetEvent('MKR:registry')
+AddEventHandler('MKR:registry', function(amount)
+    local _source = source
+    local xPlayer = ESX.GetPlayerFromId(_source)
+    local base = 0
+    amount = tonumber(amount)
+    base = xPlayer.getAccount('bank').money
+    if amount == nil or amount <= 0 then
+        TriggerClientEvent('chatMessage', _source, "You don't have enought money to enter the race")
+    else
+        if amount > base then
+            amount = base
+        end
+        xPlayer.removeAccountMoney('bank', amount)
+        TriggerClientEvent('esx:showAdvancedNotification', _source, 'Race Entry',
+        'Thanks for your entry',
+        "Now show me what u can do! ~n~MONEY: ~g~-"..amount.."$",
+        'CHAR_HUNTER', 9)
+        TriggerClientEvent('MKR:enterrace', _source)
+    end
+end)
+
 RegisterNetEvent('MKR:givemoney')
 AddEventHandler('MKR:givemoney', function(amount)
     print("givemoney")
