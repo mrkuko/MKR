@@ -28,7 +28,7 @@ Route_x = {
 		Color = {r = 97, g = 6, b = 109},--color of markers, gps route
 		BColor = 58,--blipcolor
 		Size  = {x = 2.0, y = 2.0, z = 2.0},--size of marker
-        Marker = 5,--type of entrance marker
+        	Marker = 5,--type of entrance marker
 		Car = 'freecrawler',--car model for race
 		Reward = 30000, --$ ,rewarded when finished sooner than ttf will runned away
 		ttf = 480000,--time to fail, in miliseconds
