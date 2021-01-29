@@ -10,6 +10,7 @@ Config.Checkpoints = {
 		Heading = 35.2909, --heading of spawned car
 		Color = {r = 97, g = 6, b = 109},--color of markers, gps route
 		BColor = 58,--blipcolor
+		Btype = 430,--blip's sprite
 		Size  = {x = 2.0, y = 2.0, z = 2.0},--size of marker
         	Marker = 5,--type of entrance marker
 		Car = 'freecrawler',--car model for race
@@ -37,6 +38,7 @@ Config.Checkpoints = {
 		Heading = 114.2758, --heading of spawned car
 		Color = {r = 255, g = 153, b = 51},--color of markers, gps route
 		BColor = 47,--blipcolor https://docs.fivem.net/docs/game-references/blips/
+		Btype = 430,--blip's sprite
 		Size  = {x = 2.0, y = 2.0, z = 2.0},--size of marker
         	Marker = 5,--type of entrance marker
 		Car = 'comet2',--car model for race
