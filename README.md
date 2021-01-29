@@ -3,7 +3,7 @@
 * [es_extended](https://github.com/esx-framework/es_extended/tree/v1-final)
 
 ## How to install:
-- Download https://github.com/
+- Download https://github.com/mrkuko/MKR
 - extract to your directory and in type **start MKR** in your server.cfg
 
 ### Discription:
