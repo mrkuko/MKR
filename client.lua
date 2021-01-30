@@ -99,7 +99,7 @@ Citizen.CreateThread(function()
                 isInMarker = false
             end
         end
-        if IsControlPressed(0,38) and (isInMarker==true) and ((GetGameTimer() - GUI.Time) > 150) then
+        if IsControlPressed(0, Config.OpenControl) and (isInMarker==true) and ((GetGameTimer() - GUI.Time) > 150) then
             GUI.Time = GetGameTimer()
             print("DEBUG: StartRace()")
             --odtialto
