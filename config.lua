@@ -1,6 +1,7 @@
 Config = {}
 
-Config.SendMessagess = true
+Config.SendMessagess = true --show/hide chat messagess
+Config.OpenControl = 38 --key for start
 
 Config.Checkpoints = {
 
