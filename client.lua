@@ -102,6 +102,7 @@ Citizen.CreateThread(function()
         if IsControlPressed(0,38) and (isInMarker==true) and ((GetGameTimer() - GUI.Time) > 150) then
             GUI.Time = GetGameTimer()
             print("DEBUG: StartRace()")
+            --odtialto
             TriggerServerEvent('MKR:registry', currentrace.Entry)
         end
     end
@@ -109,6 +110,7 @@ end)
 
 RegisterNetEvent('MKR:enterrace')
 AddEventHandler('MKR:enterrace', function() StartRace()end)
+--sem
 
 --Samotny raceevent
     --currentrace=Route_1
@@ -124,7 +126,6 @@ function StartRace()
         Citizen.Wait(0)
     end
     vehicle = CreateVehicle(car, currentrace.Pos.x, currentrace.Pos.y, currentrace.Pos.z+1, currentrace.Heading, true, false)
-    --Appears not working--SetVehicleFuelLevel(vehicle , 100.0)
     SetPedIntoVehicle(PlayerPedId(), vehicle, -1)
     if (GetVehiclePedIsIn(GetPlayerPed(-1),false)~=0) then
         FreezeEntityPosition(GetVehiclePedIsIn(GetPlayerPed(-1),false--[[only current vehicle]]),true--[[toggle freeze]])
@@ -291,6 +292,8 @@ Citizen.CreateThread(function()
             else
                 text(math.floor(ms/60000)..'m '..math.floor((ms - (math.floor(ms/60000))*60000)/1000)..'s '..(ms - (math.floor(ms/1000)*1000))..'ms',0.16,0.85,0,102,0,1.0)
             end
+            DisableControlAction(0,75,true)
+            DisableControlAction(27,75,true)
         end
     end
 end)
