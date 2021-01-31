@@ -1,7 +1,7 @@
 Config = {}
-
-Config.SendMessagess = true --show/hide chat messagess
-Config.OpenControl = 38 --key for start
+Config.Locale = "sk" --language
+Config.SendMessagess = true --enable/disable chat messagess from MKR
+Config.OpenControl = 38 --key to enter the marker https://docs.fivem.net/docs/game-references/controls/
 
 Config.Checkpoints = {
 
@@ -13,8 +13,9 @@ Config.Checkpoints = {
 		BColor = 58,--blipcolor
 		Btype = 430,--blip's sprite
 		Size  = {x = 2.0, y = 2.0, z = 2.0},--size of marker
-        	Marker = 5,--type of entrance marker
+        Marker = 5,--type of entrance marker
 		Car = 'freecrawler',--car model for race
+		Character = 'CHAR_HUNTER', --character who will send you the message
 		Entry = 1200,
 		Reward = 30000, --$
 		ttf = 480000,--time to fail, in miliseconds
@@ -41,10 +42,11 @@ Config.Checkpoints = {
 		BColor = 47,--blipcolor https://docs.fivem.net/docs/game-references/blips/
 		Btype = 430,--blip's sprite
 		Size  = {x = 2.0, y = 2.0, z = 2.0},--size of marker
-        	Marker = 5,--type of entrance marker
+        Marker = 5,--type of entrance marker
 		Car = 'comet2',--car model for race
-		Entry = 800,
-		Reward = 30000, --$
+		Character = 'CHAR_MP_RAY_LAVOY', --photo of character which will send you the message https://wiki.gtanet.work/index.php?title=Notification_Pictures
+		Entry = 800, --price to enter the race
+		Reward = 15000, --$
 		ttf = 180000,--time to fail, in miliseconds
 		Points = {{x = -250.2492, y = 605.4804, z = 184.877},{x = -369.2902, y = 670.2508, z = 166.2205}, --coords of checkpoints
 		{x = -547.119, y = 670.009, z = 143.048},{x = -699.318, y = 718.974, z = 157.962},{x = -593.062, y = 738.485, z = 181.764},
@@ -54,5 +56,26 @@ Config.Checkpoints = {
 		{x = -1840.431, y = 486.402, z = 131.337},{x = -1981.923, y = 511.103, z = 106.505},{x = -1952.167, y = 271.612, z = 85.127},
 		{x = -1834.128, y = 70.029, z = 74.388},{x = -2105.505, y = 291.266, z = 126.018},{x = -2209.743, y = 567.619, z = 162.552},
 		{x = -2304.790, y = 457.871, z = 173.467},},
+	},
+	Route_2 = {	
+		Name = 'Los Santos dike', --name of the event
+		Pos = {x = 2682.130, y = 1680.322, z = 24.552},--coords of enter mark
+		Heading = 114.2758, --heading of spawned car
+		Color = {r = 23, g = 39, b = 46},--color of markers, gps route
+		BColor = 78,--blipcolor https://docs.fivem.net/docs/game-references/blips/
+		Btype = 430,--blip's sprite
+		Size  = {x = 2.0, y = 2.0, z = 2.0},--size of marker
+        Marker = 5,--type of entrance marker
+		Car = 'retinue',--car model for race
+		Character = 'CHAR_HUNTER', --photo of character which will send you the message https://wiki.gtanet.work/index.php?title=Notification_Pictures
+		Entry = 500, --price to enter the race
+		Reward = 5000, --$
+		ttf = 180000,--time to fail, in miliseconds
+		Points = {{x = 2677.375, y = 1644.27, z = 23.635},{x = 2539.940, y = 1587.425, z = 29.340}, --coords of checkpoints
+		{x = 2405.018, y = 1221.531, z = 57.106},{x = 2269.277, y = 1041.760, z = 72.343},{x = 2374.139, y = 927.238, z = 106.078},
+		{x = 2446.089, y = 629.422, z = 137.875},{x = 2372.456, y = 278.359, z = 185.163},{x = 2273.311, y = 168.644, z = 211.476},
+		{x = 2198.621, y = 113.147, z = 227.860},{x = 1994.874, y = -78.735, z = 210.891},{x = 1785.022, y = -79.356, z = 189.070},
+		{x = 1665.190, y = -77.154, z = 171.765},{x = 1575.688, y = -73.447, z = 159.349},{x = 1345.970, y = -112.793, z = 119.891},
+		{x = 1281.956, y = -202.608, z = 100.218},{x = 1308.311, y = -274.970, z = 90.890},{x = 1220.469, y = -285.677, z = 68.276},},
 	},
 }

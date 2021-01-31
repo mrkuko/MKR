@@ -4,7 +4,7 @@
 
 ## How to install:
 - Download https://github.com/mrkuko/MKR/releases
-- extract to your directory and type **start MKR** in your server.cfg
+- extract to your directory and in type **start MKR** in your server.cfg
 
 ### Discription:
 - Custom race events
@@ -27,11 +27,9 @@ Route_x = {
 		Heading = 35.2909, --heading of spawned car
 		Color = {r = 97, g = 6, b = 109},--color of markers, gps route, https://www.rapidtables.com/web/color/RGB_Color.html
 		BColor = 58,--blipcolor, https://docs.fivem.net/docs/game-references/blips/
-		Btype = 430,--blip's sprite
 		Size  = {x = 2.0, y = 2.0, z = 2.0},--size of marker
         	Marker = 5,--type of entrance marker, https://docs.fivem.net/docs/game-references/markers/
 		Car = 'freecrawler',--car model for race, https://gta.fandom.com/wiki/Vehicles_in_GTA_V
-		Entry = 1200,--price to enter the race
 		Reward = 30000, --$ ,rewarded when finished sooner than ttf will runned away
 		ttf = 480000,--time to fail, in miliseconds
 		Points = {{x = float, y = float, z = float},{x = float, y = float, z = float}, --coords of checkpoints
@@ -45,6 +43,3 @@ Route_x = {
         },
 	},
 ```
-
-## Showcase:
-[![Watch the video](https://img.youtube.com/vi/AcNpNVRDKxA/maxresdefault.jpg)](https://youtu.be/AcNpNVRDKxA)

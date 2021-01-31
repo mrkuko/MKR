@@ -1,18 +1,22 @@
 fx_version 'bodacious'
 game 'gta5'
 
-author 'mr__kuko'
-description 'Time events'
-version 'alpha'
+author 'mr__Kuko'
+description 'custom race events'
+version 'v0.8 beta'
 dependencies{
     'es_extended'
 }
 
 client_scripts{
-    'client.lua',
+    '@es_extended/locale.lua',
+    'client/*.lua',
+    'locales/*.lua',
     'config.lua'
 }
 server_scripts{
-    'server.lua',
-    'locales/en.lua'
+    '@es_extended/locale.lua',
+    'server/*.lua',
+    'locales/*.lua',
+    'config.lua'
 }

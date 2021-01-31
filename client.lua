@@ -90,7 +90,7 @@ Citizen.CreateThread(function()
         isInMarker = false
         for k, v in pairs(Config.Checkpoints) do
             if (GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), v.Pos.x, v.Pos.y, v.Pos.z, true) < v.Size.x) then
-                ESX.ShowHelpNotification('Press ~INPUT_PICKUP~ to take part in race event!')
+                ESX.ShowHelpNotification(_U"enter_race"..' ~r~('..(v.Entry)..'$)')
                 currentraceindex = k
                 currentrace = v
                 isInMarker = true
@@ -101,24 +101,17 @@ Citizen.CreateThread(function()
         end
         if IsControlPressed(0, Config.OpenControl) and (isInMarker==true) and ((GetGameTimer() - GUI.Time) > 150) then
             GUI.Time = GetGameTimer()
-            print("DEBUG: StartRace()")
-            --odtialto
-            TriggerServerEvent('MKR:registry', currentrace.Entry)
+            TriggerServerEvent('MKR:registry', currentrace.Entry, currentrace.Character)
         end
     end
 end)
 
 RegisterNetEvent('MKR:enterrace')
 AddEventHandler('MKR:enterrace', function() StartRace()end)
---sem
 
---Samotny raceevent
-    --currentrace=Route_1
+--raceevent
 function StartRace()
-    local heading = GetEntityHeading(PlayerPedId())
-    print(heading)
     selectedcar = currentrace.Car
-    print(currentrace,selectedcar)
     local car = GetHashKey(selectedcar)
     RequestModel(car)
     while not HasModelLoaded(car) do
@@ -130,12 +123,12 @@ function StartRace()
     if (GetVehiclePedIsIn(GetPlayerPed(-1),false)~=0) then
         FreezeEntityPosition(GetVehiclePedIsIn(GetPlayerPed(-1),false--[[only current vehicle]]),true--[[toggle freeze]])
         if Config.SendMessagess then
-            TriggerEvent('chat:addMessage', { args = { "~g~MKR","Hello, this is MKR (mr__kuko's racing)" }, color = 0,0,0 })
-            TriggerEvent('chat:addMessage', { args = { "type ~u~/respawn~s~ for fresh start" }, color = 0,0,0 })
-            TriggerEvent('chat:addMessage', { args = { "type ~u~/exit~s~ to exit race" }, color = 0,0,0 })
+            TriggerEvent('chat:addMessage', { args = { "~g~MKR", _U"announcement" }, color = 0,0,0 })
+            TriggerEvent('chat:addMessage', { args = { _U"respawn" }, color = 0,0,0 })
+            TriggerEvent('chat:addMessage', { args = { _U"exit" }, color = 0,0,0 })
         end
         Count()
-    else print("DEBUG: Error during StartRace()")
+    else print("MKR: Error during StartRace()")
     end
 end
 
@@ -145,7 +138,6 @@ function Count()
 	local t1=0
 	local t0 = GetGameTimer()
     while(timer ~= 0) do
-		print("DEBUG: Timer has been setted up")
         while (t1 < 1000) do
             if(timer==3) then
                 text(timer,0.49,0.5,255,128,0,1.5)
@@ -154,7 +146,7 @@ function Count()
             elseif(timer==1) then
                 text(timer,0.49,0.5,102,204,0,1.5)
             else
-                print("ERROR in writing text")
+                print("MKR: ERROR in writing text")
             end
 			t1=GetGameTimer()-t0
 			Wait(0)
@@ -168,7 +160,7 @@ function Count()
 	t1=0
 	t0 = GetGameTimer()
     while (t1 < 1000) do
-        text("GO!",0.45,0.5,255,0,0,1.5)
+        text(_U"go",0.45,0.5,255,0,0,1.5)
 		Wait(0)
 		t1=GetGameTimer()-t0
     end
@@ -176,7 +168,6 @@ function Count()
     FreezeEntityPosition(GetVehiclePedIsIn(GetPlayerPed(-1),false),false)
     starttimer = true
     zerotime = GetGameTimer()
-    print(zerotime)
 
     numberofpoints = 0
     for index, checkpoint in pairs(currentrace.Points) do
@@ -185,7 +176,6 @@ function Count()
         SetBlipHiddenOnLegend(blip[index],true)
         SetBlipDisplay(blip[index],5)
         ShowNumberOnBlip(blip[index], (index))
-        --print("DEBUG: index:"..index)
         numberofpoints = numberofpoints + 1
     end
     raceinproggress = true
@@ -221,7 +211,6 @@ Citizen.CreateThread(function()
             end
             text((currentcheckpoint-1).."/"..numberofpoints,0.16,0.8,currentrace.Color.r,currentrace.Color.g,currentrace.Color.b,1.0)
             if(currentcheckpoint>numberofpoints) then
-                print("DEBUG: Finish line")
                 EndRace()
             end
         end           
@@ -230,14 +219,13 @@ end)
 
 function EndRace()
     starttimer = false
-    print("DEBUG: Is it end already?")
     PlaySoundFrontend(-1, "FLIGHT_SCHOOL_LESSON_PASSED", "HUD_AWARDS")
     print(m0)
     local t1 = 0
 	local t0 = GetGameTimer()
     while (t1 < 4000) do
-        text("Race Finished!",0.2,0.4,104,204,0,3.0)
-        text('~h~total time: '..math.floor(m0/60000)..'m '..math.floor((m0 - (math.floor(m0/60000))*60000)/1000)..'s '..(m0 - (math.floor(m0/1000)*1000))..'ms',0.3,0.6,0,0,0,1.0)
+        text(_U"finish_line",0.2,0.4,104,204,0,3.0)
+        text(_U"total_time"..math.floor(m0/60000)..'m '..math.floor((m0 - (math.floor(m0/60000))*60000)/1000)..'s '..(m0 - (math.floor(m0/1000)*1000))..'ms',0.3,0.6,0,0,0,1.0)
         Wait(0)
         t1=GetGameTimer()-t0
         if(t1>1000) then
@@ -246,13 +234,13 @@ function EndRace()
         end
     end
     if Config.SendMessagess then
-        TriggerEvent('chat:addMessage', { args = { "Total time: "..math.floor(m0/60000)..'m'..math.floor((m0 - (math.floor(m0/60000))*60000)/1000)..'s'..(m0 - (math.floor(m0/1000)*1000))..'ms'}, color = 0,0,0 })
+        TriggerEvent('chat:addMessage', { args = { _U"total_time_chat"..math.floor(m0/60000)..'m'..math.floor((m0 - (math.floor(m0/60000))*60000)/1000)..'s'..(m0 - (math.floor(m0/1000)*1000))..'ms'}, color = 0,0,0 })
     end
     local sumary = currentrace.ttf - m0
     if sumary > 0 then
-        TriggerServerEvent('MKR:givemoney', tonumber(currentrace.Reward))
+        TriggerServerEvent('MKR:givemoney', tonumber(currentrace.Reward), currentrace.Character)
     else
-        TriggerServerEvent('MKR:toobad')
+        TriggerServerEvent('MKR:toobad', currentrace.Character)
     end
     SetEntityAsMissionEntity(vehicle, true, true)
     DeleteVehicle(vehicle)
