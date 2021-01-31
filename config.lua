@@ -1,5 +1,5 @@
 Config = {}
-Config.Locale = "sk" --language
+Config.Locale = "en" --language
 Config.SendMessagess = true --enable/disable chat messagess from MKR
 Config.OpenControl = 38 --key to enter the marker https://docs.fivem.net/docs/game-references/controls/
 

@@ -79,7 +79,7 @@ Citizen.CreateThread(function()
 end)
 
 
---IsInMarker, load esx
+--IsInMarker
 Citizen.CreateThread(function()
     while true do
         Wait(0)
