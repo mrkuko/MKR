@@ -1,4 +1,4 @@
-Locales["en"] = {
+Locales["fr"] = {
 	--client
 	["respawn"] = "Entrer ~u~/respawn~s~ pour un nouveau départ",
 	["enter_race"] = "Entrer ~INPUT_PICKUP~ pour participer à l'événement de course!",

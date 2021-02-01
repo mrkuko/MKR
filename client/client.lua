@@ -89,7 +89,7 @@ Citizen.CreateThread(function()
         end
         isInMarker = false
         for k, v in pairs(Config.Checkpoints) do
-            if (GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), v.Pos.x, v.Pos.y, v.Pos.z, true) < v.Size.x) then
+            if (GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), v.Pos.x, v.Pos.y, v.Pos.z, true) < v.Size.x) and (GetVehiclePedIsIn(GetPlayerPed(-1),false) == 0) then
                 ESX.ShowHelpNotification(_U"enter_race"..' ~r~('..(v.Entry)..'$)')
                 currentraceindex = k
                 currentrace = v
@@ -275,10 +275,19 @@ Citizen.CreateThread(function()
         if starttimer then
             m0 = (GetGameTimer()-zerotime)
             local ms = currentrace.ttf - m0
-            if(math.floor(ms/60000)==0) then
-                text(math.floor((ms - (math.floor(ms/60000))*60000)/1000)..'s '..(ms - (math.floor(ms/1000)*1000))..'ms',0.16,0.85,0,102,0,1.0)
+            if ms >= 0 then
+                if(math.floor(ms/60000)==0) then
+                    text(math.floor((ms - (math.floor(ms/60000))*60000)/1000)..'s '..(ms - (math.floor(ms/1000)*1000))..'ms',0.16,0.85,0,102,0,1.0)
+                else
+                    text(math.floor(ms/60000)..'m '..math.floor((ms - (math.floor(ms/60000))*60000)/1000)..'s '..(ms - (math.floor(ms/1000)*1000))..'ms',0.16,0.85,0,102,0,1.0)
+                end
             else
-                text(math.floor(ms/60000)..'m '..math.floor((ms - (math.floor(ms/60000))*60000)/1000)..'s '..(ms - (math.floor(ms/1000)*1000))..'ms',0.16,0.85,0,102,0,1.0)
+                local dms = m0 - currentrace.ttf
+                if(math.floor(dms/60000)==0) then
+                    text('-'..math.floor((dms - (math.floor(dms/60000))*60000)/1000)..'s '..(dms - (math.floor(dms/1000)*1000))..'ms',0.16,0.85,255,51,51,1.0)
+                else
+                    text('-'..math.floor(dms/60000)..'m '..math.floor((dms - (math.floor(dms/60000))*60000)/1000)..'s '..(dms - (math.floor(dms/1000)*1000))..'ms',0.16,0.85,255,51,51,1.0)
+                end
             end
             DisableControlAction(0,75,true)
             DisableControlAction(27,75,true)
