@@ -57,7 +57,7 @@ Config.Checkpoints = {
 		{x = -1834.128, y = 70.029, z = 74.388},{x = -2105.505, y = 291.266, z = 126.018},{x = -2209.743, y = 567.619, z = 162.552},
 		{x = -2304.790, y = 457.871, z = 173.467},},
 	},
-	Route_2 = {	
+	Route_3 = {	
 		Name = 'Los Santos dike', --name of the event
 		Pos = {x = 2682.130, y = 1680.322, z = 24.552},--coords of enter mark
 		Heading = 114.2758, --heading of spawned car
